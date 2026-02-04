@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Broadcast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dynamic Background Container -->
+    <div id="backgroundContainer" class="background-container">
+        <!-- For Sunny Weather -->
+        <div id="sunnyBg" class="weather-bg sunny-bg" style="display: none;">
+            <div class="sun sun-bright"></div>
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+            <div class="rays"></div>
+        </div>
+
+        <!-- For Night Weather -->
+        <div id="nightBg" class="weather-bg night-bg" style="display: none;">
+            <div class="stars" id="starsContainer"></div>
+            <div class="shooting-stars" id="shootingStarsContainer"></div>
+            <div class="moon"></div>
+            <div class="night-glow"></div>
+        </div>
+
+        <!-- For Rainy Weather -->
+        <div id="rainyBg" class="weather-bg rainy-bg" style="display: none;">
+            <div class="rain" id="rainContainer"></div>
+            <div class="clouds-rain">
+                <div class="cloud-rain cloud-rain1"></div>
+                <div class="cloud-rain cloud-rain2"></div>
+            </div>
+            <div class="lightning" id="lightning"></div>
+        </div>
+
+        <!-- For Cloudy Weather -->
+        <div id="cloudyBg" class="weather-bg cloudy-bg" style="display: none;">
+            <div class="sun sun-small"></div>
+            <div class="cloud-cloudy cloud-cloudy1"></div>
+            <div class="cloud-cloudy cloud-cloudy2"></div>
+            <div class="cloud-cloudy cloud-cloudy3"></div>
+            <div class="cloud-cloudy cloud-cloudy4"></div>
+            <div class="soft-light"></div>
+        </div>
+
+        <!-- For Snowy Weather -->
+        <div id="snowyBg" class="weather-bg snowy-bg" style="display: none;">
+            <div class="snowflakes" id="snowContainer"></div>
+            <div class="snow-clouds">
+                <div class="snow-cloud snow-cloud1"></div>
+                <div class="snow-cloud snow-cloud2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weather-app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1><i class="fas fa-cloud-sun"></i> Weather Broadcast</h1>
+                <p class="subtitle">Real-time weather information</p>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="Search for a city..." 
+                    class="city-input"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button onclick="getWeather()" class="search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </section>
+
+        <!-- Weather Display -->
+        <main class="weather-display">
+            <div id="weatherResult" class="weather-result">
+                <div class="welcome-message">
+                    <i class="fas fa-sun"></i>
+                    <p>Enter a city name to get weather information</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Additional Info Section -->
+        <section class="info-section" id="infoSection">
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="info-label">Humidity</span>
+                    <span class="info-value" id="humidity">-</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Wind Speed</span>
+                    <span class="info-value" id="windSpeed">-</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Pressure</span>
+                    <span class="info-value" id="pressure">-</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Visibility</span>
+                    <span class="info-value" id="visibility">-</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">Feels Like</span>
+                    <span class="info-value" id="feelsLike">-</span>
+                </div>
+                <div class="info-card">
+                    <span class="info-label">UV Index</span>
+                    <span class="info-value" id="uvIndex">-</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 Weather Broadcast | Powered by OpenWeatherMap</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
